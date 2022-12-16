@@ -98,7 +98,8 @@ if %input_strong%==d (
 ) else if %input_strong%==github (
     start https://github.com/Myxogastria0808/
 ) else if %input_strong%==archive (
-    start ./archive-edit-place/archive.cmd
+    cd archive-edit-place
+    start archive.cmd
 ) else  if %input_strong%==r (
     goto :R
 ) else if %input_strong%==exit (

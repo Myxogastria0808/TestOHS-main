@@ -1,6 +1,24 @@
 chcp 65001
 @echo off
 
+color b0
+
+git clone  https://github.com/Myxogastria0808/TestOHS-reset.git
+cd TestOHS-reset
+rmdir /s /q each-club-activity
+mkdir each-club-activity
+cd ..
+cd ..
+xcopy each-club-activity archive-edit-place\TestOHS-reset\each-club-activity\ /e /h /y
+cd archive-edit-place
+cd TestOHS-reset
+git add .
+git commit -m "%date:~0,4%"
+git push origin gh-pages
+rmdir /s /q .git
+cd ..
+rmdir /s /q TestOHS-reset
+rem ===========================未実験領域　終了=========================================
 gh repo create %date:~0,4% --public
 git clone https://github.com/Myxogastria0808/%date:~0,4%.git
 cd %date:~0,4%
@@ -32,6 +50,7 @@ rmdir /s /q .git
 rmdir /s /q mirror_erea
 git clone https://github.com/Myxogastria0808/TestOHS-main.git
 cd TestOHS-main
+rmdir /s /q each-club-activity
 rmdir /s /q archive-edit-place
 rmdir /s /q announcement
 rmdir /s /q audio
@@ -77,7 +96,7 @@ start https://myxogastria0808.github.io/CodeBox/
 echo ==================================================================
 echo 以下のURLをコピーして所定の位置に貼り付けてください。
 echo.
-echo https://github.com/Myxogastria0808/%date:~0,4%.git
+echo https://myxogastria0808.github.io/%date:~0,4%/
 echo.
 echo (参考) 西暦: %date:~0,4%
 echo.
